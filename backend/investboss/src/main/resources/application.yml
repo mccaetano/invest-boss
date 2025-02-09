@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: investboss
+  datasource:
+    name: invest
+    url: jdbc:hsqldb:file:db/investdb
+    username: sa
+    password: 
+
+
+
