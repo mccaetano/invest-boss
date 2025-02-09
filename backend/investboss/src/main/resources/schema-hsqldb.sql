@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS tbCustomCSV (
+    id INTEGER,
+    idConsulta VARCHAR(255),
+    date DATE,
+    dateEnd DATE, 
+    dateStart DATE, 
+    close NUMERIC(10,2), 
+    high NUMERIC(10,2), 
+    low NUMERIC(10,2), 
+    totalMaxAverage NUMERIC(10,2), 
+    totalMinAverage NUMERIC(10,2), 
+    quotation NUMERIC(10,2), 
+    quotation2 NUMERIC(10,2), 
+    percentage NUMERIC(10,2), 
+    profit NUMERIC(10,2), 
+    loss NUMERIC(10,2), 
+    totalEnd NUMERIC(10,2),
+    hilo VARCHAR(10), 
+    trend INTEGER,
+    ifStart INTEGER
+);

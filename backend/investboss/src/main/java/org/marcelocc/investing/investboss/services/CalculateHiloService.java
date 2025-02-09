@@ -1,6 +1,6 @@
 package org.marcelocc.investing.investboss.services;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,7 +153,7 @@ public class CalculateHiloService {
         }
     }
 
-    private LocalDateTime calculateEndDate(List<CustomCSV> customCSVs, int rowIndex) {
+    private LocalDate calculateEndDate(List<CustomCSV> customCSVs, int rowIndex) {
         if (customCSVs.get(rowIndex).getPercentage() != 0.0) {
             return customCSVs.get(rowIndex).getDate();
         } else {
@@ -165,7 +165,7 @@ public class CalculateHiloService {
         }
     }
 
-    private LocalDateTime calculateStartDate(List<CustomCSV> customCSVs, int rowIndex) {
+    private LocalDate calculateStartDate(List<CustomCSV> customCSVs, int rowIndex) {
         if (customCSVs.get(rowIndex).getHilo() != customCSVs.get(rowIndex + 1).getHilo()) {
             return customCSVs.get(rowIndex + 1).getDateEnd();
         } else {
@@ -197,7 +197,7 @@ public class CalculateHiloService {
         }
     }
 
-    private int calculateIfStart(CustomCSV customCSV, LocalDateTime analisysDate) {
+    private int calculateIfStart(CustomCSV customCSV, LocalDate analisysDate) {
         if (customCSV.getDate().equals(analisysDate)) {
             return 1;
         } else {

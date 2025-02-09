@@ -1,11 +1,20 @@
-spring:
+spring:  
   application:
     name: investboss
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+      platform: hsqldb
+  data:
+    jdbc:
+      dialect: hsql
+      repositories:
+        enabled: true 
   datasource:
     name: invest
-    url: jdbc:hsqldb:file:db/investdb
+    url: jdbc:hsqldb:file:db/investdb;shutdown=true
     username: sa
-    password: 
-
-
-
+    password:

@@ -1,6 +1,6 @@
 package org.marcelocc.investing.investboss.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +15,7 @@ public class HiloPeriodData implements Comparable<HiloPeriodData> {
     private int period;
     private double totalStart, totalEnd, totalResult, percentProfit, 
         profitAverage, lossAverage, percentLoss, profitability, payoff;
-    private LocalDateTime startAnalisysDate;
+    private LocalDate startAnalisysDate;
     private int totalOperations, totalLoss, totalProfit;
 
     @Override

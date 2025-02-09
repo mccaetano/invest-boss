@@ -2,16 +2,17 @@ package org.marcelocc.investing.investboss.controllers;
 
 import java.io.IOException;
 
+import org.marcelocc.investing.investboss.models.UploadRequestModel;
 import org.marcelocc.investing.investboss.services.ImportCustomCSVService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 
 
@@ -22,9 +23,9 @@ public class HiloBetterPeriod {
     @Autowired
     private ImportCustomCSVService service;
 
-    @PostMapping("/upload")
-    public ResponseEntity<Object> uploadCustomCSV(@RequestParam MultipartFile file) throws IOException {
-        service.importDataCustomCSV(file.getInputStream());
+    @PostMapping(path =  "/upload", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public ResponseEntity<Object> uploadCustomCSV(@ModelAttribute UploadRequestModel formData) throws IOException {
+        service.importDataCustomCSV(formData.getFile().getInputStream(), formData.getDateFormat());
         return ResponseEntity.ok().body(null);
     }
 
